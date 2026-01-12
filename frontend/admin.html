@@ -1,0 +1,7 @@
+<script>
+fetch("http://localhost:3000/admin/orders",{
+ headers:{Authorization:localStorage.getItem("token")}
+})
+.then(r=>r.json())
+.then(d=>document.body.innerHTML=JSON.stringify(d,null,2));
+</script>

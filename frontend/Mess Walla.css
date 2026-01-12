@@ -1,0 +1,58 @@
+body{
+ margin:0;
+ font-family:Arial;
+ background:#fff8f0;
+}
+
+header{
+ background:#ff6b35;
+ color:white;
+ padding:20px;
+ text-align:center;
+}
+
+.login{
+ background:white;
+ width:300px;
+ margin:20px auto;
+ padding:20px;
+ border-radius:10px;
+}
+
+.login input,button{
+ width:100%;
+ margin:10px 0;
+ padding:10px;
+}
+
+.menu{
+ text-align:center;
+}
+
+.card{
+ background:white;
+ margin:10px auto;
+ width:250px;
+ padding:15px;
+ border-radius:10px;
+ box-shadow:0 0 10px #ccc;
+}
+
+
+button {
+  padding: 10px;
+  margin: 5px;
+  background: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin: 10px auto;
+  width: 250px;
+  border-radius: 10px;
+}

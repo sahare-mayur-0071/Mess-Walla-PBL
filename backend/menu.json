@@ -1,0 +1,14 @@
+{
+  "Veg": [
+    { "name": "Veg Thali", "price": 80 },
+    { "name": "Dal Rice", "price": 60 }
+  ],
+  "Special": [
+    { "name": "Paneer Thali", "price": 120 },
+    { "name": "Butter Paneer", "price": 150 }
+  ],
+  "Plans": [
+    { "name": "Weekly Plan", "price": 600 },
+    { "name": "Monthly Plan", "price": 2500 }
+  ]
+}

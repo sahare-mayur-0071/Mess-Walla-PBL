@@ -45,3 +45,11 @@ app.get("/admin/orders", auth, async (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server running"));
+
+console.log("Mongo URI:", process.env.MONGO_URI);
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => console.error("❌ Mongo error:", err));
+
+

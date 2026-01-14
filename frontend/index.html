@@ -1,29 +1,70 @@
-<script>
-let token = "";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mess Walla</title>
 
-function login(){
- fetch("http://localhost:3000/login",{
-  method:"POST",
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({
-    email:email.value,
-    password:password.value
-  })
- }).then(r=>r.json()).then(d=>{
-   token=d.token;
-   localStorage.setItem("token",token);
-   alert("Login success");
- });
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    input, button {
+      margin: 5px 0;
+      padding: 8px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
 
-function order(item,price){
- fetch("http://localhost:3000/order",{
-  method:"POST",
-  headers:{
-   "Content-Type":"application/json",
-   "Authorization":localStorage.getItem("token")
-  },
-  body:JSON.stringify({item,price})
- }).then(()=>alert("Ordered"));
-}
-</script>
+  <h1>Mess Walla</h1>
+
+  <h3>Login</h3>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <br>
+  <button onclick="login()">Login</button>
+
+  <h3>Order Food</h3>
+  <button onclick="order('Rice Plate', 80)">Order Rice Plate</button>
+
+  <script>
+    let token = "";
+
+    function login(){
+      fetch("http://localhost:3000/login",{
+        method:"POST",
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          email: email.value,
+          password: password.value
+        })
+      })
+      .then(r => r.json())
+      .then(d => {
+        token = d.token;
+        localStorage.setItem("token", token);
+        alert("Login success");
+      })
+      .catch(err => alert("Login error"));
+    }
+
+    function order(item, price){
+      fetch("http://localhost:3000/order",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "Authorization": localStorage.getItem("token")
+        },
+        body:JSON.stringify({ item, price })
+      })
+      .then(() => alert("Ordered"))
+      .catch(() => alert("Order failed"));
+    }
+  </script>
+
+</body>
+</html>
